@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { Check } from "lucide-react";
 import carroGold from "../../assets/carro-goldwash.png";
-import servicoPrincipal from "../../assets/servico-principal.jpg";
+import servicoPrincipal from "../../assets/servico-principal.png";
 import trabalho1 from "../../assets/carro1.png";
 import trabalho2 from "../../assets/carro2.png";
 import trabalho3 from "../../assets/carro3.png";
