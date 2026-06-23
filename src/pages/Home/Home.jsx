@@ -1,3 +1,126 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { Check } from "lucide-react";
+import carroGold from "../../assets/carro-goldwash.png";
+import servicoPrincipal from "../../assets/servico-principal.jpg";
+import trabalho1 from "../../assets/carro1.png";
+import trabalho2 from "../../assets/carro2.png";
+import trabalho3 from "../../assets/carro3.png";
+import trabalho4 from "../../assets/carro4.png";
+import trabalho5 from "../../assets/carro5.png";
+import trabalho6 from "../../assets/carro6.png";
+
+const beneficios = [
+  "Lavagem geral",
+  "Proteção de pintura",
+  "Limpeza no motor",
+  "Higienização de banco e tecido",
+  "Oxizatinização",
+  "Vitrificação",
+  "Descontaminação",
+  "E muito mais!",
+];
+
+const imagensTrabalho = [
+  trabalho1,
+  trabalho2,
+  trabalho3,
+  trabalho4,
+  trabalho5,
+  trabalho6,
+];
+
+export default function Home() {
+  const [inicioCarrossel, setInicioCarrossel] = useState(0);
+
+  function voltarImagem() {
+    setInicioCarrossel((valor) =>
+      valor === 0 ? imagensTrabalho.length - 1 : valor - 1
+    );
+  }
+
+  function avancarImagem() {
+    setInicioCarrossel((valor) =>
+      valor === imagensTrabalho.length - 1 ? 0 : valor + 1
+    );
+  }
+
+  const imagensVisiveis = [
+    imagensTrabalho[inicioCarrossel],
+    imagensTrabalho[(inicioCarrossel + 1) % imagensTrabalho.length],
+    imagensTrabalho[(inicioCarrossel + 2) % imagensTrabalho.length],
+    imagensTrabalho[(inicioCarrossel + 3) % imagensTrabalho.length],
+  ];
+
+  return (
+    <>
+      <section className="grid items-center gap-8 bg-purpleDark px-6 py-16 text-white md:grid-cols-2 md:px-12 md:py-20">
+        <div className="text-center md:text-left">
+          <h1 className="text-6xl font-extrabold md:text-8xl">
+            <span className="text-gold">Gold</span>Wash
+          </h1>
+          <h2 className="mt-3 text-2xl font-bold text-gold md:text-3xl">
+            ★ Lavagem Premium ★
+          </h2>
+          <p className="mt-8 max-w-2xl leading-8 text-slate-300">
+            Na Gold Wash, cada detalhe importa. Somos especialistas em estética
+            e limpeza automotiva, entregando cuidado, proteção e valorização do
+            seu veículo.
+          </p>
+          <Link to="/agendamento" className="btn-primary mt-8">
+            Agendar serviço
+          </Link>
+        </div>
+        <div className="flex justify-center">
+          <img
+            src={carroGold}
+            alt="Carro GoldWash"
+            className="w-full max-w-xl object-contain"
+          />
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-12 text-center">
+        <h2 className="text-3xl font-extrabold md:text-5xl">
+          Aqui seu carro é tratado como{" "}
+          <span className="text-gold">único!</span>
+        </h2>
+
+        <p className="mt-3 text-slate-500">
+          Oferecemos serviços que unem tecnologia, eficiência e estética.
+        </p>
+
+        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 items-center gap-8 text-left md:grid-cols-3">
+          <div className="space-y-4">
+            {beneficios.slice(0, 4).map((item) => (
+              <div
+                className="flex items-center gap-2 rounded-xl bg-slate-50 p-5 text-lg shadow-sm"
+                key={item}
+              >
+                <Check size={20} className="text-green-700" /> {item}
+              </div>
+            ))}
+          </div>
+
+          <img
+            src={servicoPrincipal}
+            alt="Serviço GoldWash"
+            className="h-80 w-full rounded-2xl object-cover shadow-lg"
+          />
+
+          <div className="space-y-4">
+            {beneficios.slice(4).map((item) => (
+              <div
+                className="flex items-center gap-2 rounded-xl bg-slate-50 p-5 text-lg shadow-sm"
+                key={item}
+              >
+                <Check size={20} className="text-green-700" /> {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </>
+  );
+}
