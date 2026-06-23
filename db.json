@@ -6,6 +6,13 @@
       "email": "cliente@goldwash.com",
       "telefone": "(11) 99999-9999",
       "senha": "123456"
+    },
+    {
+      "nome": "Paola Stephanie",
+      "email": "paola.barbuio@iesb.edu.br",
+      "telefone": "61999999999",
+      "senha": "123456",
+      "id": "7GXCLP1TMKU"
     }
   ],
   "servicos": [
@@ -87,6 +94,22 @@
       }
     }
   ],
-  "agendamentos": [],
+  "agendamentos": [
+    {
+      "nome": "Paola Stephanie",
+      "email": "paola.barbuio@iesb.edu.br",
+      "telefone": "61999999999",
+      "servicoId": "1",
+      "placa": "ABC-123",
+      "carro": "Sedan Branco",
+      "tamanho": "pequeno",
+      "data": "2026-06-24",
+      "horario": "18:30",
+      "servicoNome": "Lavagem geral",
+      "valor": 50,
+      "status": "Confirmado",
+      "id": "hAYcVbyArtM"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
