@@ -35,13 +35,13 @@ export default function Home() {
 
   function voltarImagem() {
     setInicioCarrossel((valor) =>
-      valor === 0 ? imagensTrabalho.length - 1 : valor - 1
+      valor === 0 ? imagensTrabalho.length - 1 : valor - 1,
     );
   }
 
   function avancarImagem() {
     setInicioCarrossel((valor) =>
-      valor === imagensTrabalho.length - 1 ? 0 : valor + 1
+      valor === imagensTrabalho.length - 1 ? 0 : valor + 1,
     );
   }
 
@@ -120,7 +120,38 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="bg-panelDark px-5 py-12 text-white md:px-14">
+        <h2 className="mb-8 text-3xl font-extrabold md:text-5xl">
+          Veja nosso trabalho <span className="text-gold">registrado</span>
+        </h2>
 
+        <div className="flex items-center gap-4">
+          <button
+            onClick={voltarImagem}
+            className="rounded-full bg-gold px-3 py-1 text-3xl font-bold text-black"
+          >
+            {"<"}
+          </button>
+
+          <div className="grid flex-1 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {imagensVisiveis.map((imagem, index) => (
+              <img
+                key={index}
+                src={imagem}
+                alt="Trabalho GoldWash"
+                className="h-56 w-full rounded-2xl object-cover shadow-lg"
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={avancarImagem}
+            className="rounded-full bg-gold px-3 py-1 text-3xl font-bold text-black"
+          >
+            {">"}
+          </button>
+        </div>
+      </section>
     </>
   );
 }
