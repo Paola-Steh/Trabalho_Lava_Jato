@@ -109,21 +109,6 @@
       "valor": 50,
       "status": "Confirmado",
       "id": "hAYcVbyArtM"
-    },
-    {
-      "nome": "Paola Stephanie",
-      "email": "paola.barbuio@iesb.edu.br",
-      "telefone": "61999999999",
-      "servicoId": "2",
-      "placa": "ABC-123",
-      "carro": "xuxu verde",
-      "tamanho": "medio",
-      "data": "2026-06-25",
-      "horario": "14:30",
-      "servicoNome": "Proteção de pintura",
-      "valor": 150,
-      "status": "Confirmado",
-      "id": "eFzWYVdIaPE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

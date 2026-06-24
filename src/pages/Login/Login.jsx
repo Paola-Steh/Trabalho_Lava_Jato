@@ -26,54 +26,22 @@ export default function Login() {
   }
 
   return (
-  <section className="flex min-h-[calc(100vh-90px)] items-center justify-center px-4 py-10">
-    <form
-      className="flex w-full max-w-md flex-col gap-3 rounded-2xl bg-white p-6 shadow-xl sm:p-8"
-      onSubmit={entrar}
-    >
-      <h1 className="text-2xl font-extrabold sm:text-3xl">
-        Entrar na GoldWash
-      </h1>
+    <section className="grid min-h-[calc(100vh-134px)] place-items-center px-5 py-12">
+      <form className="flex w-full max-w-md flex-col gap-3 rounded-2xl bg-white p-8 shadow-xl" onSubmit={entrar}>
+        <h1 className="text-3xl font-extrabold">Entrar na GoldWash</h1>
+        <p className="text-slate-500">Faça login para realizar seu agendamento.</p>
 
-      <p className="text-sm text-slate-500 sm:text-base">
-        Faça login para realizar seu agendamento.
-      </p>
+        {erro && <span className="message-error">{erro}</span>}
 
-      {erro && <span className="message-error">{erro}</span>}
+        <label className="label-text">E-mail</label>
+        <input className="input-field" name="email" type="email" value={form.email} onChange={alterarCampo} placeholder="seuemail@email.com" required />
 
-      <label className="label-text">E-mail</label>
-      <input
-        className="input-field w-full"
-        name="email"
-        type="email"
-        value={form.email}
-        onChange={alterarCampo}
-        placeholder="seuemail@email.com"
-        required
-      />
+        <label className="label-text">Senha</label>
+        <input className="input-field" name="senha" type="password" value={form.senha} onChange={alterarCampo} placeholder="Digite sua senha" required />
 
-      <label className="label-text">Senha</label>
-      <input
-        className="input-field w-full"
-        name="senha"
-        type="password"
-        value={form.senha}
-        onChange={alterarCampo}
-        placeholder="Digite sua senha"
-        required
-      />
-
-      <button className="btn-primary mt-3 w-full" type="submit">
-        Entrar
-      </button>
-
-      <small className="text-center sm:text-left">
-        Ainda não tem cadastro?{" "}
-        <Link className="font-bold text-blue-700" to="/cadastro">
-          Cadastre-se
-        </Link>
-      </small>
-    </form>
-  </section>
+        <button className="btn-primary mt-3" type="submit">Entrar</button>
+        <small>Ainda não tem cadastro? <Link className="font-bold text-blue-700" to="/cadastro">Cadastre-se</Link></small>
+      </form>
+    </section>
   );
 }
